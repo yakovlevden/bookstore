@@ -1,6 +1,8 @@
 package ru.learnup.march.bookstore.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -9,19 +11,23 @@ import javax.persistence.*;
  */
 @Entity
 @Table
+@Getter
+@Setter
+@Data
 public class OrderDetail {
 
     /**
      * Идентификатор заказа
      */
     @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
      * Заказ
      */
     @OneToOne
-    @MapsId
     @JoinColumn(name = "id")
     private CustomerOrder customerOrder;
 
@@ -44,4 +50,15 @@ public class OrderDetail {
     @Column
     private double price;
 
+    @Override
+    public String toString() {
+        return "OrderDetail{" +
+                "ид=" + id +
+                ", покупатель=" + customerOrder.getCustomer().getName() +
+                ", сумма покупки=" + customerOrder.getSum() +
+                ", книга=" + book +
+                ", количество=" + amount +
+                ", цена=" + price +
+                '}';
+    }
 }

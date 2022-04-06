@@ -1,7 +1,6 @@
 package ru.learnup.march.bookstore.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,6 +9,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table
+@Getter
+@Setter
+@Data
+@ToString(exclude = "bookStorage")
 public class Book {
 
     /**

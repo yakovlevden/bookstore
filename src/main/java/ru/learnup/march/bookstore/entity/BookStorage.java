@@ -1,6 +1,8 @@
 package ru.learnup.march.bookstore.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -12,20 +14,22 @@ import java.util.List;
  */
 @Entity
 @Table
+@Getter
+@Setter
 public class BookStorage {
 
     /**
      * Идентификатор книги
      */
     @Id
+    @Column(name = "id")
     private Long id;
 
     /**
      * Книга
      */
     @OneToOne
-    @MapsId
-    @JoinColumn(name = "id")
+    @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "book_id")
     private Book book;
 
     /**

@@ -1,6 +1,8 @@
 package ru.learnup.march.bookstore.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.criterion.Order;
 
 import javax.persistence.*;
@@ -10,14 +12,15 @@ import javax.persistence.*;
  */
 @Entity
 @Table
+@Getter
+@Setter
 public class CustomerOrder {
 
     /**
      * Идентификатор заказа
      */
     @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     /**
@@ -37,6 +40,6 @@ public class CustomerOrder {
      * Детали заказа
      */
     @OneToOne
-    @JoinColumn(name = "id")
+    @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "order_detail_id")
     private OrderDetail orderDetail;
 }

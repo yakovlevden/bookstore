@@ -1,8 +1,8 @@
 package ru.learnup.march.bookstore.entity;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Generated;
+import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -14,6 +14,10 @@ import java.util.List;
  */
 @Entity
 @Table
+@Getter
+@Setter
+@Data
+@ToString(exclude = "books")
 public class Author {
 
     /**

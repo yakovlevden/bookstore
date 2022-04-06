@@ -2,6 +2,9 @@ package ru.learnup.march.bookstore.entity;
 
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,6 +14,8 @@ import java.util.Date;
  */
 @Entity
 @Table
+@Getter
+@Setter
 public class Customer {
 
     /**
