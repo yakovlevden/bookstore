@@ -1,6 +1,7 @@
 package ru.learnup.march.bookstore.services;
 
 import org.springframework.stereotype.Service;
+import ru.learnup.march.bookstore.entity.Author;
 import ru.learnup.march.bookstore.entity.Book;
 import ru.learnup.march.bookstore.repository.AuthorRepository;
 import ru.learnup.march.bookstore.repository.BookRepository;
@@ -26,5 +27,9 @@ public class BookService {
 
     public Book getBookByTitle(String title) {
         return repository.getBookByTitle(title);
+    }
+
+    public List<Book> findAllByAuthor(String authorName) {
+        return repository.findAllByAuthor(authorName);
     }
 }

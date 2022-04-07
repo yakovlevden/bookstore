@@ -5,9 +5,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import ru.learnup.march.bookstore.entity.Author;
 
+import java.util.List;
+
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
-    @Query("SELECT a FROM Author a WHERE a.name = ?1")
-    Author findByName(String name);
+    Author getAuthorByName(String name);
 }

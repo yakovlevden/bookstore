@@ -30,6 +30,6 @@ public class CustomerService {
     }
 
     public Customer getCustomerByName(String name) {
-        return repository.findByName(name);
+        return repository.getCustomerByName(name);
     }
 }

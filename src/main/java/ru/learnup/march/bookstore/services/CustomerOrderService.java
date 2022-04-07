@@ -33,6 +33,6 @@ public class CustomerOrderService {
     }
 
     public List<CustomerOrder> getCustomerOrdersByCustomer(Customer customer) {
-        return repository.findCustomerOrdersByCustomer(customer);
+        return repository.findAllCustomerOrdersByCustomer(customer);
     }
 }

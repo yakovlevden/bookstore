@@ -9,6 +9,5 @@ import ru.learnup.march.bookstore.entity.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-    @Query("SELECT c FROM Customer c WHERE c.name = ?1")
-    Customer findByName(String name);
+    Customer getCustomerByName(String name);
 }

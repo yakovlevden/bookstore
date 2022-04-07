@@ -30,6 +30,8 @@ public class BookstoreApplication {
         CustomerOrderService customerOrderService = context.getBean(CustomerOrderService.class);
         OrderDetailService orderDetailService = context.getBean(OrderDetailService.class);
 
+        log.info("{}", bookService.findAllByAuthor("Толстой"));
+
         Book book = bookService.getBookByTitle("Капитанская дочка");
         if (book == null) {
             Author author = authorService.getAuthorByName("Александр Сергеевич Пушкин");
