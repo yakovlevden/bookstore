@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.learnup.march.bookstore.entity.Book;
 import ru.learnup.march.bookstore.entity.BookStorage;
 
@@ -16,6 +17,6 @@ public interface BookStorageRepository extends JpaRepository<BookStorage, Long> 
     Integer getCountById(Long id);
 
     @Modifying
-    @Query("UPDATE BookStorage bs SET bs.count = bs.count - ?2 where bs.id = ?1")
-    void takeBook(Long id, Integer number);
+    @Query("UPDATE BookStorage bs SET bs.count = bs.count - ?2 where bs.id = ?1 and bs.count >= ?2")
+    Integer takeBook(Long id, Integer number);
 }

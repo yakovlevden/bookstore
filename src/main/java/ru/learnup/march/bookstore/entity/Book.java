@@ -13,6 +13,7 @@ import javax.persistence.*;
 @Setter
 @Data
 @ToString(exclude = "bookStorage")
+@NoArgsConstructor
 public class Book {
 
     /**
@@ -60,4 +61,12 @@ public class Book {
     @OneToOne
     @JoinColumn(name = "id")
     private BookStorage bookStorage;
+
+    public Book(String title, Author author, int year, double price, int pages) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.price = price;
+        this.pages = pages;
+    }
 }

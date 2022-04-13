@@ -18,6 +18,7 @@ import java.util.List;
 @Setter
 @Data
 @ToString(exclude = "books")
+@NoArgsConstructor
 public class Author {
 
     /**
@@ -40,5 +41,14 @@ public class Author {
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Book> books;
+
+    public Author(String name) {
+        this.name = name;
+    }
+
+    public Author(String name, List<Book> books) {
+        this.name = name;
+        this.books = books;
+    }
 
 }

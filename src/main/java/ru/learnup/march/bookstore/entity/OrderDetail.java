@@ -2,6 +2,7 @@ package ru.learnup.march.bookstore.entity;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Data
+@NoArgsConstructor
 public class OrderDetail {
 
     /**
@@ -54,11 +56,15 @@ public class OrderDetail {
     public String toString() {
         return "OrderDetail{" +
                 "ид=" + id +
-                ", покупатель=" + customerOrder.getCustomer().getName() +
-                ", сумма покупки=" + customerOrder.getSum() +
                 ", книга=" + book +
                 ", количество=" + amount +
                 ", цена=" + price +
                 '}';
+    }
+
+    public OrderDetail(Book book, int amount, double price) {
+        this.book = book;
+        this.amount = amount;
+        this.price = price;
     }
 }

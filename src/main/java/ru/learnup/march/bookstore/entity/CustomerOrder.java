@@ -3,6 +3,7 @@ package ru.learnup.march.bookstore.entity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.criterion.Order;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import javax.persistence.*;
 @Table
 @Getter
 @Setter
+@Data
 public class CustomerOrder {
 
     /**
@@ -42,4 +44,13 @@ public class CustomerOrder {
     @OneToOne
     @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "order_detail_id")
     private OrderDetail orderDetail;
+
+    @Override
+    public String toString() {
+        return "CustomerOrder{" +
+                "ид=" + id +
+                ", покупатель=" + customer.getName() +
+                ", сумма покупки=" + sum +
+                '}';
+    }
 }

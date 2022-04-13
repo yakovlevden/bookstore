@@ -3,6 +3,7 @@ package ru.learnup.march.bookstore.entity;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import java.util.Date;
 @Table
 @Getter
 @Setter
+@NoArgsConstructor
 public class Customer {
 
     /**
@@ -38,4 +40,8 @@ public class Customer {
     @Column
     @Temporal(TemporalType.DATE)
     private Date birthdate;
+
+    public Customer(String name) {
+        this.name = name;
+    }
 }
