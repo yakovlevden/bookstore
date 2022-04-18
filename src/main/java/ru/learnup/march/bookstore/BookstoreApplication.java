@@ -60,10 +60,10 @@ public class BookstoreApplication {
             buyBook(customer, allBooks);
         });
 
-        thread1.start();
-        thread2.start();
-        thread3.start();
-        thread4.start();
+//        thread1.start();
+//        thread2.start();
+//        thread3.start();
+//        thread4.start();
     }
 
     private static void buyBook(Customer customer, List<Book> allBooks) {
