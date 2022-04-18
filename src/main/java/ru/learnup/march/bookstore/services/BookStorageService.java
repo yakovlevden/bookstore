@@ -1,5 +1,7 @@
 package ru.learnup.march.bookstore.services;
 
+import org.hibernate.annotations.OptimisticLock;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.learnup.march.bookstore.entity.Book;
@@ -7,6 +9,7 @@ import ru.learnup.march.bookstore.entity.BookStorage;
 import ru.learnup.march.bookstore.repository.BookRepository;
 import ru.learnup.march.bookstore.repository.BookStorageRepository;
 
+import javax.persistence.LockModeType;
 import java.util.List;
 
 @Service
@@ -30,6 +33,7 @@ public class BookStorageService {
         return count != null ? count : 0;
     }
 
+    @Lock(value = LockModeType.OPTIMISTIC_FORCE_INCREMENT)
     public void takeBook(Book book, Integer number) throws Exception {
         int result = repository.takeBook(book.getId(), number);
         if (result == 0) {

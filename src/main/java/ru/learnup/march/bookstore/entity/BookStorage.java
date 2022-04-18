@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import java.util.List;
@@ -37,4 +38,7 @@ public class BookStorage {
      */
     @Column
     private Integer count;
+
+    @Version
+    private Long version;
 }
