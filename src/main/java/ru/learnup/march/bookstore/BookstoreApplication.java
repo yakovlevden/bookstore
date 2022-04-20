@@ -38,7 +38,7 @@ public class BookstoreApplication {
         customerOrderService = context.getBean(CustomerOrderService.class);
         orderDetailService = context.getBean(OrderDetailService.class);
 
-        initializeData();
+//        initializeData();
 
         List<Book> allBooks = bookService.getBooks();
         List<Customer> allCustomers = customerService.getCustomers();
